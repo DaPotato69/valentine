@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>A Question For You</title>
+    <style>
+        #yes {
+            -webkit-border-radius: 11;
+            -moz-border-radius: 11;
+            border: none;
+            border-radius: 11px;
+            color: #ffffff;
+            background: #4cbd24;
+            padding: 10px 20px 10px 20px;
+            margin-right: 5px;
+            text-decoration: none;
+        }
+        #yes:hover {
+            background: #2aa317;
+            text-decoration: none;
+        }
+
+        #no {
+            -webkit-border-radius: 11;
+            -moz-border-radius: 11;
+            border: none;
+            border-radius: 10px;
+            color: #ffffff;
+            font-size: 1em;
+            background: #d02135;
+            padding: 10px 20px 10px 20px;
+            margin-left: 5px;
+            text-decoration: none;
+        }
+        #no:hover {
+            background: #a31723;
+            text-decoration: none;
+        }
+
+        body {
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            height: 95vh;
+            max-width: 100%;
+        }
+        #buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img id="image" src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" height="300vh"/>
+        <p id="text" style="font-size: 2.5em;">Will you be my Valentine?</p>
+        <div id="buttons">
+            <input id="yes" onclick="yes()" type="button" value="Yes" style="font-size: 1em;"></input>
+            <input id="no" onclick="no()" type="button" value="No" style="height: 38px;"></input>
+        </div>
+    </div>
+    <script>
+        var noCount = 0;
+        function getNoButtonText(noCount) {
+            const phrases = [
+                "No",
+                "Are you sure?",
+                "What if I asked really nicely?",
+                "Pretty please",
+                "With a chocolate rice cake on top",
+                "What about a matcha frostie",
+                "PLEASE POOKIE",
+                "But :*(",
+                "I am going to die",
+                "Yep im dead",
+                "ok ur talking to my ghost",
+                "please babe",
+                ":((((",
+                "dont do this to me",
+                "PRETTY PLEASE",
+                "😭😭😭",
+                "Estoy muerto",
+                "No :(",
+            ];
+
+            return phrases[Math.min(noCount, phrases.length - 1)];
+        };
+        var noButton = document.getElementById("no");
+        var yesButton = document.getElementById("yes");
+        function no() {
+            noCount++;
+            noButton.value = getNoButtonText(noCount);
+            yesButton.style = "font-size: " + (noCount + 2) + "em;"
+        }
+        function yes() {
+            document.getElementById("text").innerHTML = "<strong>WOOOOOOO! I love you pookie <3</strong>"
+            document.getElementById("image").src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif"
+            yesButton.style.display = 'none';
+            noButton.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
